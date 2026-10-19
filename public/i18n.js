@@ -27,7 +27,7 @@ window.EID_I18N = {
     imprint: 'Imprint', imprint_href: '/imprint/', privacy: 'Privacy', privacy_href: '/privacy/',
     home_href: '/tools/e-invoice-deadline/',
     invoice_href: '/tools/invoice/', checker_href: '/tools/e-rechnung/',
-    contact_href: '/?topic=e-invoice-deadline#contact',
+    contact_href: '/?topic=e-invoice-reminder#contact',
 
     verdict_large: 'Yes. You must send e-invoices from {d}.',
     verdict_small: 'Yes. You must send e-invoices from {d}.',
@@ -122,7 +122,7 @@ window.EID_I18N = {
     imprint: 'Impressum', imprint_href: '/impressum/', privacy: 'Datenschutz', privacy_href: '/datenschutz/',
     home_href: '/de/tools/e-invoice-deadline/',
     invoice_href: '/de/tools/invoice/', checker_href: '/de/tools/e-rechnung/',
-    contact_href: '/de/?topic=e-invoice-deadline#contact',
+    contact_href: '/de/?topic=e-invoice-reminder#contact',
 
     verdict_large: 'Ja. Sie müssen ab {d} E-Rechnungen versenden.',
     verdict_small: 'Ja. Sie müssen ab {d} E-Rechnungen versenden.',
