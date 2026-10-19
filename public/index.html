@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Am I affected? E-invoice deadline checker for Germany</title>
+<meta name="description" content="Three or four questions show when your business in Germany must receive and send e-invoices, what to do before then, and a calendar reminder.">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0B0F0C">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="app.css?v=1">
+</head>
+<body>
+
+<nav class="strip" aria-label="Site">
+  <div class="wrap strip__in">
+    <a class="strip__home" id="lnkHome" href="/tools/e-invoice-deadline/">&larr; hmsk.life</a>
+    <span class="strip__sp"></span>
+    <a id="lnkImprint" href="/impressum/">Impressum</a>
+    <a id="lnkPrivacy" href="/privacy/">Privacy</a>
+    <span class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="de" aria-pressed="false">DE</button>
+    </span>
+  </div>
+</nav>
+
+<main class="wrap main">
+  <header class="head">
+    <p class="cmd"><span class="ps">$</span> <span data-i18n="cmd">e-invoice --am-i-affected</span></p>
+    <h1 data-i18n="h1">Am I affected by the German e-invoice rules?</h1>
+    <p class="lead" data-i18n="lead">Answer a few questions. You get your deadlines for receiving and sending e-invoices, what to do before then, and a calendar reminder.</p>
+  </header>
+
+  <div class="grid">
+    <form class="panel qs" id="questions" autocomplete="off" onsubmit="return false">
+      <fieldset class="q" data-q="b2b">
+        <legend><span class="flag">--b2b</span> <span data-i18n="q_b2b">Do you send invoices to other businesses in Germany?</span></legend>
+        <p class="hint" data-i18n="h_b2b">You and your client are both established in Germany (seat, management or a permanent establishment). Invoices to consumers or to clients abroad do not count.</p>
+        <div class="opts">
+          <label><input type="radio" name="b2b" value="y"><span data-i18n="yes">Yes</span></label>
+          <label><input type="radio" name="b2b" value="n"><span data-i18n="no">No</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="q" data-q="ku" hidden>
+        <legend><span class="flag">--kleinunternehmer</span> <span data-i18n="q_ku">Are you a Kleinunternehmer under § 19 UStG?</span></legend>
+        <p class="hint" data-i18n="h_ku">You charge no VAT on your invoices because your turnover is below the small business limits.</p>
+        <div class="opts">
+          <label><input type="radio" name="ku" value="y"><span data-i18n="yes">Yes</span></label>
+          <label><input type="radio" name="ku" value="n"><span data-i18n="no">No</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="q" data-q="ex" hidden>
+        <legend><span class="flag">--exempt</span> <span data-i18n="q_ex">Are all of your invoices to businesses small or VAT exempt?</span></legend>
+        <p class="hint" data-i18n="h_ex">Every single one is up to €250 gross, a ticket (Fahrausweis), or a VAT-exempt supply under § 4 Nr. 8 to 29 UStG, for example financial services or renting out property.</p>
+        <div class="opts">
+          <label><input type="radio" name="ex" value="y"><span data-i18n="ex_y">Yes, all of them</span></label>
+          <label><input type="radio" name="ex" value="n"><span data-i18n="ex_n">No, at least some are normal invoices</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="q" data-q="to" hidden>
+        <legend><span class="flag">--turnover-2026</span> <span data-i18n="q_to">Is your total turnover in 2026 above €800,000?</span></legend>
+        <p class="hint" data-i18n="h_to">Your whole turnover for the year (Gesamtumsatz, § 19 Abs. 2 UStG), not only B2B sales. The year 2026 decides whether you start sending in 2027 or in 2028.</p>
+        <div class="opts">
+          <label><input type="radio" name="to" value="y"><span data-i18n="yes">Yes</span></label>
+          <label><input type="radio" name="to" value="n"><span data-i18n="no">No</span></label>
+          <label><input type="radio" name="to" value="u"><span data-i18n="unsure">Not sure yet</span></label>
+        </div>
+      </fieldset>
+
+      <p class="qs__foot"><button type="button" class="linkish" id="resetBtn" data-i18n="reset">Start over</button></p>
+    </form>
+
+    <section class="panel result" id="result" aria-live="polite">
+      <p class="result__title"><span class="ps">&gt;</span> <span data-i18n="result">Your result</span></p>
+      <div id="resultBody"></div>
+    </section>
+  </div>
+
+  <section class="sources">
+    <p class="cmd"><span class="ps">$</span> <span data-i18n="sources_cmd">cat sources.txt</span></p>
+    <ul id="sourcesList"></ul>
+    <p class="note" data-i18n="note">Not tax advice. This checker summarises the rules as of October 2026 (§ 14 and § 27 Abs. 38 UStG, BMF letters of 15 October 2024 and 15 October 2025). Your case can differ, so ask your tax advisor before you rely on it.</p>
+  </section>
+</main>
+
+<footer class="wrap foot">
+  <p data-i18n="privacy_line">Runs in your browser. No cookies, no tracking. Your answers are kept only in the address bar, so you can share the link.</p>
+</footer>
+
+<script src="config.js"></script>
+<script src="logic.js"></script>
+<script src="i18n.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
