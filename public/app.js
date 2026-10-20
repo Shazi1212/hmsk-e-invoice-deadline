@@ -38,9 +38,9 @@
   }
   function chipFor(iso) {
     var n = daysUntil(iso);
-    if (n < 0) return '<span class="chip chip--on">[' + esc(t('chip_done')) + ']</span>';
-    if (n === 0) return '<span class="chip chip--on">[' + esc(t('chip_today')) + ']</span>';
-    return '<span class="chip">[' + esc(t('chip_next', { n: n })) + ']</span>';
+    if (n < 0) return '<span class="chip chip--on">' + esc(t('chip_done')) + '</span>';
+    if (n === 0) return '<span class="chip chip--on">' + esc(t('chip_today')) + '</span>';
+    return '<span class="chip">' + esc(t('chip_next', { n: n })) + '</span>';
   }
   function link(href) { return SITE + href; }
   function resultUrl() {
@@ -111,10 +111,10 @@
     var rows = [];
     rows.push(row(r.receive, t('tl_receive'), t('tl_receive_d'), chipFor(r.receive)));
     if (r.issue === 'not-required') {
-      rows.push(row(null, t('tl_nosend'), t('nosend_' + r.reason.replace('-', '_')), '<span class="chip">[' + esc(t('tl_nosend_v')) + ']</span>'));
+      rows.push(row(null, t('tl_nosend'), t('nosend_' + r.reason.replace('-', '_')), '<span class="chip">' + esc(t('tl_nosend_v')) + '</span>'));
     } else {
       if (daysUntil(r.paperUntil) >= 0) {
-        rows.push(row(null, t('tl_paper'), t('tl_paper_d', { d: fmtDate(r.paperUntil) }), '<span class="chip">[' + esc(t('chip_until')) + ']</span>'));
+        rows.push(row(null, t('tl_paper'), t('tl_paper_d', { d: fmtDate(r.paperUntil) }), '<span class="chip">' + esc(t('chip_until')) + '</span>'));
       }
       if (r.issue === 'unsure') {
         rows.push(row(r.deadline, t('tl_send_unsure'), t('tl_send_unsure_d'), chipFor(r.deadline), true));
@@ -131,13 +131,13 @@
     if (r.issue === 'unsure') todos.push('todo_turnover');
     if (r.reason === 'kleinunternehmer') todos.push('todo_status');
     todos.push('todo_archive', 'todo_advisor');
-    html.push('<h2 class="h2"><span class="ps">#</span> ' + esc(t('todo_title')) + '</h2><ul class="todo">' +
+    html.push('<h2 class="h2">' + esc(t('todo_title')) + '</h2><ul class="todo">' +
       todos.map(function (k) { return '<li>' + esc(t(k, { d: r.deadline ? fmtDate(r.deadline) : '' })) + '</li>'; }).join('') + '</ul>');
 
     // reminder
     var rem = L.reminderDate(r.deadline, today);
     var primary = rem ? 'ics' : 'invoice';
-    html.push('<h2 class="h2"><span class="ps">#</span> ' + esc(t(rem ? 'rem_title' : 'upd_title')) + '</h2><div class="rem">');
+    html.push('<h2 class="h2">' + esc(t(rem ? 'rem_title' : 'upd_title')) + '</h2><div class="rem">');
     if (rem) {
       html.push('<button type="button" class="btn btn--main" id="icsBtn">' + esc(t('rem_btn')) + '</button>' +
         '<p class="small">' + esc(t(rem.late ? 'rem_late' : 'rem_desc', { d: fmtDate(rem.date) })) + '</p>' +
@@ -148,7 +148,7 @@
     html.push('</div>');
 
     // next step
-    html.push('<h2 class="h2"><span class="ps">#</span> ' + esc(t('next_title')) + '</h2><div class="next">' +
+    html.push('<h2 class="h2">' + esc(t('next_title')) + '</h2><div class="next">' +
       '<a class="btn ' + (primary === 'invoice' ? 'btn--main' : 'btn--line') + '" href="' + esc(link(t('invoice_href'))) + '">' + esc(t('next_invoice')) + ' &rarr;</a>' +
       '<p class="small">' + esc(t('next_invoice_d')) + '</p>' +
       '<a class="btn btn--line" href="' + esc(link(t('checker_href'))) + '">' + esc(t('next_checker')) + ' &rarr;</a>' +

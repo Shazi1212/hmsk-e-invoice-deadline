@@ -5,10 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Am I affected? E-invoice deadline checker for Germany</title>
 <meta name="description" content="Three or four questions show when your business in Germany must receive and send e-invoices, what to do before then, and a calendar reminder.">
-<meta name="color-scheme" content="dark">
-<meta name="theme-color" content="#0B0F0C">
+<meta name="theme-color" content="#EFF1F2">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="app.css?v=1">
+<link rel="preload" href="fonts/newsreader-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="letterpress.css?v=2">
+<link rel="stylesheet" href="app.css?v=4">
 </head>
 <body>
 
@@ -26,7 +27,7 @@
 
 <main class="wrap main">
   <header class="head">
-    <p class="cmd"><span class="ps">$</span> <span data-i18n="cmd">e-invoice --am-i-affected</span></p>
+    <p class="eyebrow"><span data-i18n="cmd">E-Invoice Deadline Checker</span></p>
     <h1 data-i18n="h1">Am I affected by the German e-invoice rules?</h1>
     <p class="lead" data-i18n="lead">Answer a few questions. You get your deadlines for receiving and sending e-invoices, what to do before then, and a calendar reminder.</p>
   </header>
@@ -74,13 +75,13 @@
     </form>
 
     <section class="panel result" id="result" aria-live="polite">
-      <p class="result__title"><span class="ps">&gt;</span> <span data-i18n="result">Your result</span></p>
+      <p class="result__title"><span data-i18n="result">Your result</span></p>
       <div id="resultBody"></div>
     </section>
   </div>
 
   <section class="sources">
-    <p class="cmd"><span class="ps">$</span> <span data-i18n="sources_cmd">cat sources.txt</span></p>
+    <p class="cmd"><span data-i18n="sources_cmd">Sources</span></p>
     <ul id="sourcesList"></ul>
     <p class="note" data-i18n="note">Not tax advice. This checker summarises the rules as of October 2026 (§ 14 and § 27 Abs. 38 UStG, BMF letters of 15 October 2024 and 15 October 2025). Your case can differ, so ask your tax advisor before you rely on it.</p>
   </section>
@@ -92,7 +93,7 @@
 
 <script src="config.js"></script>
 <script src="logic.js"></script>
-<script src="i18n.js"></script>
-<script src="app.js"></script>
+<script src="i18n.js?v=4"></script>
+<script src="app.js?v=4"></script>
 </body>
 </html>
