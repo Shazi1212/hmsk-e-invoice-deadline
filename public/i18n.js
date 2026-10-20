@@ -27,7 +27,7 @@ window.EID_I18N = {
     imprint: 'Imprint', imprint_href: '/imprint/', privacy: 'Privacy', privacy_href: '/privacy/',
     home_href: '/tools/e-invoice-deadline/',
     invoice_href: '/tools/invoice/', checker_href: '/tools/e-rechnung/',
-    contact_href: '/?topic=e-invoice-reminder#contact',
+    contact_href: '/subscribe/?topic=e-invoice-reminder',
 
     verdict_large: 'Yes. You must send e-invoices from {d}.',
     verdict_small: 'Yes. You must send e-invoices from {d}.',
@@ -66,9 +66,9 @@ window.EID_I18N = {
     rem_desc: 'Downloads an .ics file with an event on {d}, three months before your deadline, with an alert at 9:00. Works with Google, Apple and Outlook calendars. Nothing is sent anywhere.',
     rem_late: 'Downloads an .ics file with an event tomorrow, {d}, with an alert at 9:00 (three months before your deadline has already passed). Works with Google, Apple and Outlook calendars. Nothing is sent anywhere.',
     rem_mail: 'Or email me a reminder',
-    rem_mail_d: 'Send me a note through the contact form and I will email you a reminder myself. There is no newsletter yet.',
+    rem_mail_d: 'An email three months before the 2027 and 2028 deadlines, and when the rules change. Double opt-in, one-click unsubscribe.',
     upd_mail: 'Get an email if the rules change',
-    upd_mail_d: 'Send me a note through the contact form and I will write to you myself. There is no newsletter yet.',
+    upd_mail_d: 'One email when the rules change. Double opt-in, one-click unsubscribe.',
 
     next_title: 'Next step',
     next_invoice: 'Free invoice tool with XRechnung export',
@@ -122,7 +122,7 @@ window.EID_I18N = {
     imprint: 'Impressum', imprint_href: '/impressum/', privacy: 'Datenschutz', privacy_href: '/datenschutz/',
     home_href: '/de/tools/e-invoice-deadline/',
     invoice_href: '/de/tools/invoice/', checker_href: '/de/tools/e-rechnung/',
-    contact_href: '/de/?topic=e-invoice-reminder#contact',
+    contact_href: '/de/newsletter/?topic=e-invoice-reminder',
 
     verdict_large: 'Ja. Sie müssen ab {d} E-Rechnungen versenden.',
     verdict_small: 'Ja. Sie müssen ab {d} E-Rechnungen versenden.',
@@ -161,9 +161,9 @@ window.EID_I18N = {
     rem_desc: 'Lädt eine .ics-Datei mit einem Termin am {d} herunter, drei Monate vor Ihrer Frist, mit Hinweis um 9:00 Uhr. Funktioniert mit Google, Apple und Outlook. Es wird nichts übertragen.',
     rem_late: 'Lädt eine .ics-Datei mit einem Termin morgen, am {d}, herunter, mit Hinweis um 9:00 Uhr (drei Monate vor Ihrer Frist sind schon vorbei). Funktioniert mit Google, Apple und Outlook. Es wird nichts übertragen.',
     rem_mail: 'Oder per E-Mail erinnern lassen',
-    rem_mail_d: 'Schreiben Sie mir über das Kontaktformular, dann erinnere ich Sie persönlich per E-Mail. Einen Newsletter gibt es noch nicht.',
+    rem_mail_d: 'Eine E-Mail drei Monate vor den Fristen 2027 und 2028 und wenn sich die Regeln ändern. Double-Opt-in, Abmelden mit einem Klick.',
     upd_mail: 'Per E-Mail informiert werden, wenn sich die Regeln ändern',
-    upd_mail_d: 'Schreiben Sie mir über das Kontaktformular, dann melde ich mich persönlich. Einen Newsletter gibt es noch nicht.',
+    upd_mail_d: 'Eine E-Mail, wenn sich die Regeln ändern. Double-Opt-in, Abmelden mit einem Klick.',
 
     next_title: 'Nächster Schritt',
     next_invoice: 'Kostenloses Rechnungstool mit XRechnung-Export',
