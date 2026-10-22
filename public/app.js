@@ -98,6 +98,7 @@
       return;
     }
     var html = [];
+    var uses = window.HMSKMoment ? HMSKMoment.use('e-invoice-deadline') : 0; // email is offered from the second use on
 
     // verdict
     var v;
@@ -140,11 +141,9 @@
     html.push('<h2 class="h2">' + esc(t(rem ? 'rem_title' : 'upd_title')) + '</h2><div class="rem">');
     if (rem) {
       html.push('<button type="button" class="btn btn--main" id="icsBtn">' + esc(t('rem_btn')) + '</button>' +
-        '<p class="small">' + esc(t(rem.late ? 'rem_late' : 'rem_desc', { d: fmtDate(rem.date) })) + '</p>' +
-        '<p class="small"><a href="' + esc(link(t('contact_href'))) + '">' + esc(t('rem_mail')) + ' &rarr;</a> ' + esc(t('rem_mail_d')) + '</p>');
-    } else {
-      html.push('<p class="small"><a href="' + esc(link(t('contact_href'))) + '">' + esc(t('upd_mail')) + ' &rarr;</a> ' + esc(t('upd_mail_d')) + '</p>');
+        '<p class="small">' + esc(t(rem.late ? 'rem_late' : 'rem_desc', { d: fmtDate(rem.date) })) + '</p>');
     }
+    if (uses >= 2) html.push('<div id="emBox"></div>');
     html.push('</div>');
 
     // next step
@@ -160,8 +159,25 @@
 
     body.innerHTML = html.join('');
     if (rem) $('#icsBtn').addEventListener('click', function () { downloadICS(r, rem); });
+    if (uses >= 2) emailMoment(r, rem);
     $('#shareBtn').addEventListener('click', share);
     $('#printBtn').addEventListener('click', function () { window.print(); });
+  }
+
+  // Second use: an email reminder three months before the deadline (only the date and its label are sent),
+  // or, without a deadline ahead, an email when the rules change.
+  function emailMoment(r, rem) {
+    var o = { lang: lang, action: link('/email/subscribe.php'), privacy: link(t('privacy_href')) + '#newsletter',
+      source: '/apps/e-invoice-deadline/' };
+    if (rem) {
+      o.topic = 'e-invoice-reminder'; o.consent = 'own'; o.topicName = t('em_topic');
+      o.title = t('rem_mail'); o.intro = t('rem_mail_d');
+      o.items = [{ date: r.deadline, label: t('em_label'), kind: 'deadline', text: t('em_item', { d: fmtDate(r.deadline) }) }];
+    } else {
+      o.topic = 'e-invoice-deadline'; o.consent = 'topic'; o.topicName = t('em_topic_upd');
+      o.title = t('upd_mail'); o.intro = t('upd_mail_d');
+    }
+    HMSKMoment.render($('#emBox'), o);
   }
 
   function row(date, title, desc, chip, strong) {
